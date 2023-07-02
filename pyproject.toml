@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "plants"
+version = "0.1.0"
+description = ""
+authors = ["Daniil Kryuk <dkryuk@tradingview.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.2"
+django-split-settings = "^1.2.0"
+psycopg2 = "^2.9.6"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+flake8-bugbear = "^23.6.5"
+flake8-comprehensions = "^3.13.0"
+pep8-naming = "^0.13.3"
+flake8-builtins = "^2.1.0"
+flake8-bandit = "^4.1.1"
+flake8-print = "^5.0.0"
+mypy = "^1.4.1"
+django-stubs = "^4.2.3"
+pre-commit = "^3.3.3"
+django-split-settings = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+line_length=50
+multi_line_output=3
+force_single_line=false
+include_trailing_comma=true
+reverse_relative=true
+skip_glob=["*/.venv/*", "*/migrations/*"]
+
+[tool.mypy]
+python_version=3.11
+pretty=true
+warn_redundant_casts=true
+ignore_missing_imports=true
+plugins=["mypy_django_plugin.main"]
+files=[
+    "./src/**/*.py",
+]
+exclude = [
+    'migrations/*',
+    'manage.py',
+]
+
+[tool.django-stubs]
+django_settings_module="src.core.settings"
+

@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres:15.3-alpine
+    container_name: plants_psql
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: plant_db
+      POSTGRES_USER: plant_user
+      POSTGRES_PASSWORD: plant_password
+    ports:
+      - '5434:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
