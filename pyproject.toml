@@ -10,6 +10,9 @@ python = "^3.11"
 django = "^4.2.2"
 django-split-settings = "^1.2.0"
 psycopg2 = "^2.9.6"
+djangorestframework = "^3.14.0"
+django-extensions = "^3.2.3"
+django-bitfield = "^2.2.0"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"
@@ -42,6 +45,7 @@ python_version=3.11
 pretty=true
 warn_redundant_casts=true
 ignore_missing_imports=true
+check_untyped_defs=true
 plugins=["mypy_django_plugin.main"]
 files=[
     "./src/**/*.py",
@@ -49,6 +53,7 @@ files=[
 exclude = [
     'migrations/*',
     'manage.py',
+    './src/common/bit_handel_monkey_patch.py',
 ]
 
 [tool.django-stubs]

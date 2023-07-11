@@ -21,4 +21,4 @@ repos:
     rev: 'v1.4.1'
     hooks:
       - id: mypy
-        additional_dependencies: [ django-stubs, django-split-settings, psycopg ]
+        additional_dependencies: [ djangorestframework, django-extensions, django-bitfield, django-stubs, django-split-settings, psycopg2 ]
