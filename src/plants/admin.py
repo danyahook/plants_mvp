@@ -4,21 +4,33 @@ from bitfield.forms import (
 )
 from django.contrib import admin
 
-from .models import plants
+from .models.plants import (
+    Ailment,
+    Color,
+    CommonName,
+    MinMaxValue,
+    PartColor,
+    Plant,
+    Propagation,
+    Pruning,
+    RegularEvent,
+    Synonym,
+    Tag,
+)
 
-admin.site.register(plants.MinMaxValue)
-admin.site.register(plants.RegularEvent)
-admin.site.register(plants.Propagation)
-admin.site.register(plants.Pruning)
-admin.site.register(plants.Ailment)
-admin.site.register(plants.Tag)
-admin.site.register(plants.Color)
-admin.site.register(plants.PartColor)
-admin.site.register(plants.CommonName)
-admin.site.register(plants.Synonym)
+admin.site.register(MinMaxValue)
+admin.site.register(RegularEvent)
+admin.site.register(Propagation)
+admin.site.register(Pruning)
+admin.site.register(Ailment)
+admin.site.register(Tag)
+admin.site.register(Color)
+admin.site.register(PartColor)
+admin.site.register(CommonName)
+admin.site.register(Synonym)
 
 
-@admin.register(plants.Plant)
+@admin.register(Plant)
 class PlantAdmin(admin.ModelAdmin):
     formfield_overrides = {
             BitField: {'widget': BitFieldCheckboxSelectMultiple},

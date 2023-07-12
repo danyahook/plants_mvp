@@ -1,1 +1,1 @@
-from src.common.bit_handel_monkey_patch import *  # noqa: F403
+from src.common.monkey_patch.bit_handel import *  # noqa: F403

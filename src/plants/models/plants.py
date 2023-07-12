@@ -128,9 +128,9 @@ class MinMaxValue(models.Model):
 
 
 class PlantQuerySet(models.QuerySet['Plant']):
-    def prefetch_related_all(self) -> 'PlantQuerySet':
-        queryset = self
-        return queryset.prefetch_related(
+    def related_all(self) -> 'PlantQuerySet':
+        return self.select_related('height_cm', 'years_to_max_height', 'spread_cm') \
+            .prefetch_related(
             models.Prefetch('regular_events'),
             models.Prefetch('ailments'),
             models.Prefetch('common_names'),
@@ -138,7 +138,7 @@ class PlantQuerySet(models.QuerySet['Plant']):
             models.Prefetch('pruning'),
             models.Prefetch('tags'),
             models.Prefetch('synonyms'),
-            models.Prefetch('parts_color', queryset=PartColor.objects.prefetch_related('colors_part'))
+            models.Prefetch('parts_color', queryset=PartColor.objects.prefetch_related('colors_part')),
         )
 
 
